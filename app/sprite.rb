@@ -1,6 +1,4 @@
 class Sprite
-  attr_accessor :x, :y, :width, :height, :image_filename, :frame_count, :current_frame, :frame_speed, :life_countdown
-
   def initialize(params)
     @x = params[:x]
     @y = params[:y]
@@ -25,6 +23,8 @@ class Sprite
   end
 
   private
+
+  attr_accessor :x, :y, :width, :height, :image_filename, :frame_count, :current_frame, :frame_speed, :life_countdown
 
   def image_for_current_frame
     "sprites/#{image_filename}_#{current_frame}.png"
