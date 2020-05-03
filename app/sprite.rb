@@ -14,7 +14,17 @@ class Sprite
   end
 
   def render
-    [x, y, width, height, image_for_current_frame]
+    {
+      x: x,
+      y: y,
+      w: width,
+      h: height,
+      path: image_filename,
+      tile_x: (current_frame-1) * width,
+      tile_y: 0,
+      tile_w: width,
+      tile_h: height
+    }
   end
 
   def next_frame(tick_count)
@@ -27,8 +37,4 @@ class Sprite
   private
 
   attr_accessor :x, :y, :width, :height, :image_filename, :frame_count, :current_frame, :frame_speed
-
-  def image_for_current_frame
-    "sprites/#{image_filename}_#{current_frame}.png"
-  end
 end
